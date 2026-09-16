@@ -26,6 +26,7 @@ class Settings:
     # IDEA.md baseline is gemini-3.8-flash; env-overridable so we default to a
     # model ID that exists today while allowing the future ID without code change.
     gemini_model: str = field(default_factory=lambda: os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite"))
+    gemini_fallback_model: str = field(default_factory=lambda: os.getenv("GEMINI_FALLBACK_MODEL", "gemini-3.1-flash-lite"))
     gemini_validator_model: str = field(
         default_factory=lambda: os.getenv("GEMINI_VALIDATOR_MODEL", os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite"))
     )

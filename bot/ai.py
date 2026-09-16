@@ -57,14 +57,20 @@ def _client() -> genai.Client:
 
 def _generate_json(model: str, prompt: str) -> dict:
     client = _client()
-    resp = client.models.generate_content(
-        model=model,
-        contents=prompt,
-        config={"response_mime_type": "application/json"},
-    )
-    text = resp.text or "{}"
-    text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M)
-    return json.loads(text)
+    for m in [model, settings.gemini_fallback_model]:
+        try:
+            resp = client.models.generate_content(
+                model=m,
+                contents=prompt,
+                config={"response_mime_type": "application/json"},
+            )
+            text = resp.text or "{}"
+            text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M)
+            return json.loads(text)
+        except Exception:
+            if m == settings.gemini_fallback_model:
+                raise
+    return {}
 
 
 def suggest_ideas(n: int = 2) -> list[dict]:

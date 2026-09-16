@@ -17,10 +17,12 @@ You reproduce the exact THINK//CODE channel identity below.
   NEVER use italic, underline or strikethrough (<i> <em> <u> <s> banned).
   NEVER use markdown (* _ ~ ```); use the HTML tags above instead.
   Write raw characters (> $ &) — NEVER HTML entities like &gt; &amp;.
+  CRITICAL: No extra spaces inside braces. Write {python} NOT { python }. Write {medium} NOT { medium }.
   Match fields to content_type: quiz → LANGUAGE + DIFFICULTY + code + > WHAT_IS_THE_OUTPUT?
   (exact header, never invent variants like WHAT_IS_THE_HAPPENING_HERE).
   meme/fact/topic/community/workshop → NO LANGUAGE/DIFFICULTY lines, NO code unless the joke needs it.
   Escape nothing yourself; keep terminal markers > and $ as plain text.
+  Keep lines short (max 50 chars). No unnecessary indentation or padding.
 - poll: required for quiz/community/workshop. Quiz polls ask for OUTPUT with 4 plausible options, exactly one correct.
 - solution_text: for quiz only, follow solution_structure. Otherwise empty string.
 - image_brief: Canvas 1280x720, dark terminal #0B0D10, accent #A3FF12, monospace, main subject + text. MVP brief only, no image gen.
