@@ -5,6 +5,7 @@ import asyncio
 import logging
 import os
 import sys
+import threading
 
 import aiohttp
 from flask import Flask, jsonify, request
@@ -26,6 +27,11 @@ dp: Dispatcher | None = None
 _loop: asyncio.AbstractEventLoop | None = None
 
 
+def _run_async(coro):
+    """Run async coroutine from sync context."""
+    return asyncio.run_coroutine_threadsafe(coro, _loop).result(timeout=30)
+
+
 async def _register_webhook():
     """Register Telegram webhook on startup."""
     url = f"https://{settings.fly_app_name}.fly.dev/webhook"
@@ -41,10 +47,12 @@ async def _register_webhook():
             logger.error("Webhook failed: %s", data)
 
 
-async def _init():
-    """Init bot + dispatcher (no polling)."""
+def _init_bot():
+    """Init bot + dispatcher in background thread."""
     global bot, dp, _loop
-    _loop = asyncio.get_event_loop()
+
+    _loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(_loop)
 
     missing = settings.validate_for_bot()
     if missing:
@@ -56,7 +64,11 @@ async def _init():
     dp.include_router(admin_router)
     dp.include_router(approval_router)
 
-    await _register_webhook()
+    # Register webhook after a short delay (let DNS propagate)
+    import time
+    time.sleep(3)
+    _loop.run_until_complete(_register_webhook())
+    _loop.run_forever()
 
 
 @app.route("/", methods=["GET"])
@@ -75,10 +87,9 @@ def webhook():
     return "", 200
 
 
-# Init bot on module load (Fly.io runs this as the WSGI app)
-_loop = asyncio.new_event_loop()
-asyncio.set_event_loop(_loop)
-_loop.run_until_complete(_init())
+# Start bot in background thread (Flask runs in main thread)
+t = threading.Thread(target=_init_bot, daemon=True)
+t.start()
 
 
 if __name__ == "__main__":
