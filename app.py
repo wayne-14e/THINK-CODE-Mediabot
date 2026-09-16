@@ -1,74 +1,19 @@
-"""Fly.io webhook server — receives Telegram updates, no polling."""
-from __future__ import annotations
-
-import asyncio
+"""Fly.io webhook server."""
 import logging
 import os
-import sys
 import threading
 
-import aiohttp
 from flask import Flask, jsonify, request
-from aiogram import Bot, Dispatcher
-from aiogram.client.default import DefaultBotProperties
-
-sys.path.insert(0, os.path.dirname(__file__))
-
-from bot.config import settings
-from bot.handlers import admin_router, approval_router
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+logger.info("Starting app.py")
 
 app = Flask(__name__)
 
-bot: Bot | None = None
-dp: Dispatcher | None = None
-_loop: asyncio.AbstractEventLoop | None = None
-
-
-def _run_async(coro):
-    """Run async coroutine from sync context."""
-    return asyncio.run_coroutine_threadsafe(coro, _loop).result(timeout=30)
-
-
-async def _register_webhook():
-    """Register Telegram webhook on startup."""
-    url = f"https://{settings.fly_app_name}.fly.dev/webhook"
-    async with aiohttp.ClientSession() as s:
-        resp = await s.get(
-            f"https://api.telegram.org/bot{settings.telegram_token}/setWebhook",
-            json={"url": url, "allowed_updates": ["message", "callback_query"]},
-        )
-        data = await resp.json()
-        if data.get("ok"):
-            logger.info("Webhook registered: %s", url)
-        else:
-            logger.error("Webhook failed: %s", data)
-
-
-def _init_bot():
-    """Init bot + dispatcher in background thread."""
-    global bot, dp, _loop
-
-    _loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(_loop)
-
-    missing = settings.validate_for_bot()
-    if missing:
-        logger.warning("missing env: %s", missing)
-
-    bot = Bot(token=settings.telegram_token or "0:placeholder",
-              default=DefaultBotProperties(parse_mode="HTML"))
-    dp = Dispatcher()
-    dp.include_router(admin_router)
-    dp.include_router(approval_router)
-
-    # Register webhook after a short delay (let DNS propagate)
-    import time
-    time.sleep(3)
-    _loop.run_until_complete(_register_webhook())
-    _loop.run_forever()
+bot = None
+dp = None
+_loop = None
 
 
 @app.route("/", methods=["GET"])
@@ -78,8 +23,8 @@ def health():
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
-    """Receive Telegram updates via webhook."""
     if bot and dp and _loop:
+        import asyncio
         update = request.get_json(force=True)
         from aiogram.types import Update
         tg_update = Update.model_validate(update)
@@ -87,11 +32,54 @@ def webhook():
     return "", 200
 
 
-# Start bot in background thread (Flask runs in main thread)
+def _init_bot():
+    global bot, dp, _loop
+    try:
+        logger.info("Bot thread starting")
+        import asyncio
+        import sys
+        sys.path.insert(0, os.path.dirname(__file__))
+        from bot.config import settings
+        from bot.handlers import admin_router, approval_router
+        from aiogram import Bot, Dispatcher
+        from aiogram.client.default import DefaultBotProperties
+
+        _loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(_loop)
+
+        missing = settings.validate_for_bot()
+        if missing:
+            logger.warning("missing env: %s", missing)
+
+        bot = Bot(token=settings.telegram_token,
+                  default=DefaultBotProperties(parse_mode="HTML"))
+        dp = Dispatcher()
+        dp.include_router(admin_router)
+        dp.include_router(approval_router)
+
+        import aiohttp, time
+        time.sleep(3)
+        url = f"https://{settings.fly_app_name}.fly.dev/webhook"
+        async def reg():
+            async with aiohttp.ClientSession() as s:
+                r = await s.get(
+                    f"https://api.telegram.org/bot{settings.telegram_token}/setWebhook",
+                    json={"url": url, "allowed_updates": ["message", "callback_query"]},
+                )
+                d = await r.json()
+                logger.info("Webhook: %s", d)
+        _loop.run_until_complete(reg())
+        logger.info("Bot ready, webhook registered")
+        _loop.run_forever()
+    except Exception:
+        logger.exception("Bot init failed")
+
+
 t = threading.Thread(target=_init_bot, daemon=True)
 t.start()
-
+logger.info("Thread started")
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", "8080"))
+    logger.info("Flask listening on 0.0.0.0:%d", port)
     app.run(host="0.0.0.0", port=port)
