@@ -33,6 +33,25 @@ def _style() -> dict:
     return json.loads((DATA / "style_profile.json").read_text(encoding="utf-8"))
 
 
+def _next_quiz_number() -> int:
+    """Scan channel history + Firestore posts to find the next quiz number."""
+    nums = set()
+    # Scan local history
+    hist = DATA / "channel_history.json"
+    if hist.exists():
+        for item in json.loads(hist.read_text(encoding="utf-8")):
+            for m in re.finditer(r"QUIZ[_ ](\d+)", (item.get("text") or ""), re.I):
+                nums.add(int(m.group(1)))
+    # Scan Firestore posts
+    try:
+        for p in dbmod.recent_posts(50):
+            for m in re.finditer(r"QUIZ[_ ](\d+)", (p.get("content") or ""), re.I):
+                nums.add(int(m.group(1)))
+    except Exception:
+        pass
+    return max(nums, default=0) + 1
+
+
 def _recent(n: int = 12) -> str:
     try:
         posts = dbmod.recent_posts(n)
@@ -117,7 +136,11 @@ def generate_post(content_type: str, language: str = "python", difficulty: str =
     base = _load("generate.txt").replace("{style_profile}", json.dumps(_style(), ensure_ascii=False))
     base = base.replace("{recent_posts}", _recent())
     task = (f"\n=== TASK ===\ncontent_type={content_type}\nlanguage={language}\n"
-            f"difficulty={difficulty}\ntopic_hint={topic_hint}\nGenerate now.")
+            f"difficulty={difficulty}\ntopic_hint={topic_hint}\n")
+    if content_type == "quiz":
+        n = _next_quiz_number()
+        task += f"QUIZ_NUMBER={n:02d}\nUse this exact number in the header: > QUIZ_{n:02d}\n"
+    task += "Generate now."
     for attempt in range(3):  # generate -> validate -> retry
         cand = _generate_json(settings.gemini_model, base + task)
         exec_result = ""
