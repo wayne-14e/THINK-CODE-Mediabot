@@ -7,5 +7,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY bot/ bot/
 COPY data/ data/
+COPY app.py .
 
-CMD ["python", "-m", "bot.main"]
+ENV PYTHONUNBUFFERED=1
+ENV PORT=8080
+
+CMD ["python", "app.py"]

@@ -33,6 +33,7 @@ class Settings:
     firebase_project_id: str = field(
         default_factory=lambda: os.getenv("FIREBASE_PROJECT_ID", "think-code-mediabot")
     )
+    fly_app_name: str = field(default_factory=lambda: os.getenv("FLY_APP_NAME", "think-code-mediabot"))
     default_publish_time: str = field(default_factory=lambda: os.getenv("DEFAULT_PUBLISH_TIME", "12:00"))
     timezone: str = field(default_factory=lambda: os.getenv("TIMEZONE", "Asia/Tashkent"))
 
