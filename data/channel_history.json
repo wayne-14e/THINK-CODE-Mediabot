@@ -1,0 +1,395 @@
+[
+  {
+    "date": "13.08.2026 15:13:52 UTC+05:00",
+    "type": "post",
+    "text": "💻 Welcome to the Think//Code society 👩‍💻 🧑‍💻",
+    "media": [
+      "photo"
+    ],
+    "reactions": [
+      "🔥x7",
+      "⚡x3",
+      "👾x1"
+    ]
+  },
+  {
+    "date": "18.08.2026 12:04:23 UTC+05:00",
+    "type": "quiz",
+    "text": "For the first quiz, we have a song :)\n\n> Yeah it looks quite confusing, yet if you dig in and look at it from a different angle, you'll get why it's related to IT. \n\nYour answers and options will be happily anticipated in the comment section :)\n\n THINK//CODE",
+    "media": [
+      "audio"
+    ],
+    "reactions": [
+      "🔥x4",
+      "👀x2",
+      "👾x1"
+    ]
+  },
+  {
+    "date": "19.08.2026 13:51:05 UTC+05:00",
+    "type": "post",
+    "text": "> We'll guys, it's officially passed 24 hours since the post, and yet there're no comments with any versions. ://\n\nI may assume that most of you are just busy, but I can assure you that this quiz takes a maximum of 10 minutes of your time. So please, be more active to take part in the quiz. :))))",
+    "media": [],
+    "reactions": [
+      "💯x3",
+      "👾x3"
+    ]
+  },
+  {
+    "date": "19.08.2026 19:25:24 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: Alright, let's figure out when you guys are most likely to be free and take part in our activities. \n\nChoose what's more relevant to u :)\n- - Free in the first half of the day (morning till mid day) 3 votes, chosen vote\n- - Free after mid day (noon till evening) 4 votes, chosen vote\n- - Free mostly in the evenings (evening till mid night) 7 votes\n- - Free all day :) 3 votes",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "23.08.2026 21:14:35 UTC+05:00",
+    "type": "quiz",
+    "text": "> QUIZ_01.SOLUTION \n\n$ song: Daisy Bell\n$ year: 1961\n\n> In 1961, an IBM 7094 became one of the first computers to sing. 🤖\n\nThe song? \"Daisy Bell\"\n\nThis later inspired the famous HAL 9000 scene in 2001: A Space Odyssey.\n\n > IT_CONNECTION \n\n [ early speech synthesis ] / [ computer-generated voice ] \n\n$ did_you_know_this?\n\n [ 🤯 ] = new fact unlocked",
+    "media": [
+      "photo"
+    ],
+    "reactions": [
+      "🤯x7",
+      "⚡x2",
+      "🔥x2"
+    ]
+  },
+  {
+    "date": "30.08.2026 19:59:15 UTC+05:00",
+    "type": "post",
+    "text": "> SYSTEM_UPDATE \n\n$ status: compiling...\n\nWe're not dead.\nWe're preparing the next challenge 🧑‍🍳.\n\n $ YOUR_MOVE: \n\nVote below.\nTomorrow, we start.",
+    "media": [
+      "video"
+    ],
+    "reactions": [
+      "🔥x3",
+      "👾x1"
+    ]
+  },
+  {
+    "date": "30.08.2026 19:59:47 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: > INPUT_REQUIRED:\n\nWhich language should we use for our first mini-challenge?\n- - [ 🐍 ] Python 10 votes, chosen vote\n- - [ ☕️ ] JavaScript 7 votes, chosen vote\n- - [ ⚙️ ] C++ 1 vote\n- - [ 👀 ] Just curious 5 votes",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "31.08.2026 16:39:02 UTC+05:00",
+    "type": "quiz",
+    "text": "> QUIZ_02 \n > LANGUAGE: PYTHON 🐍 \n\n $ EXECUTE_THE_CODE: \n\n x = [1, 2]\ny = x\n\ny.append(3)\n\nprint(x) \n\n > WHAT_IS_THE_OUTPUT? \n\nThink before running it. 👀",
+    "media": [
+      "photo"
+    ],
+    "reactions": [
+      "👾x2",
+      "💯x1"
+    ]
+  },
+  {
+    "date": "31.08.2026 16:39:30 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: $ ANSWER_REQUIRED:\n- - Error 1 vote\n- - [3] 1 vote\n- - [1, 2, 3] 8 votes, chosen vote\n- - [1, 2] 5 votes",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "01.09.2026 12:00:33 UTC+05:00",
+    "type": "quiz",
+    "text": "> QUIZ_02.SOLUTION \n\n $ CORRECT_OUTPUT: \n\n> [1, 2, 3]\n\n46% got it right. 👀\n\n > WHY? \n\n x = [1, 2]\ny = x \n\n [ y is NOT a new list ]\n\nBoth variables refer to the\nsame object:\n\n> x ──┐\n ▼\n [1, 2]\n ▲\ny ──┘\n\n$ so when we run:\n y.append(3) \n\n$ the shared list becomes:\n [1, 2, 3] \n\n$ therefore: \n print(x) # → [1, 2, 3] \n\n $ KEY_IDEA: \n\n> Variables can reference the\nsame object.\n\nChange the object → everyone\nreferencing it sees the change.\n\n > THINK_BEFORE_YOU_RUN. 🧠",
+    "media": [],
+    "reactions": [
+      "⚡x3",
+      "🤝x2"
+    ]
+  },
+  {
+    "date": "02.09.2026 13:12:00 UTC+05:00",
+    "type": "quiz",
+    "text": "> QUIZ_03 / IMPORTANT_RESEARCH :\n\n> You're coding.\n\nThe bug has survived 3 hours.\nYour code doesn't work.\nStack Overflow is judging you.\n\nWhat do you snack?\n\n $ COMMUNITY_DATA_COLLECTION: \n\nVote first.\n\nThen drop your real coding snack in the comments. 😋\n\nWe need to know what fuels this community. 🧠",
+    "media": [
+      "video"
+    ],
+    "reactions": [
+      "👨‍💻x1"
+    ]
+  },
+  {
+    "date": "02.09.2026 13:12:46 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: > FUEL_REQUIRED:\n\nWhat are you eating?\n- - 🍕 Pizza 2 votes\n- - 🍪 Cookies 7 votes, chosen vote\n- - 🥔 Chips 2 votes\n- - ➕ Other? Write in comments! 4 votes, chosen vote",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "03.09.2026 16:12:32 UTC+05:00",
+    "type": "quiz",
+    "text": "> QUIZ_04 \n > LANGUAGE: PYTHON 🐍 \n\n $ execute_the_code: \n print(2 ** 3 ** 2) \n\n > WHAT_IS_THE_OUTPUT? \n\nThink before running it. 👀",
+    "media": [
+      "photo"
+    ],
+    "reactions": [
+      "👾x2"
+    ]
+  },
+  {
+    "date": "03.09.2026 16:13:04 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: > SELECT_ONE_OPTION:\n- - 64 6 votes\n- - 512 9 votes, chosen vote\n- - 12 2 votes\n- - 18",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "04.09.2026 18:23:03 UTC+05:00",
+    "type": "quiz",
+    "text": "> QUIZ_04.SOLUTION \n\n $ CORRECT_OUTPUT: \n\n> 512\n\n60% got it right. 📈\n\n > WHY? \n\nMany people calculate:\n (2 ** 3) ** 2 = 8 ** 2 = 64 \n\nBut that's NOT how Python\nevaluates chained exponents.\n\nExponentiation is evaluated\n from right to left :\n 2 ** (3 ** 2) \n\n$ first:\n 3 ** 2 → 9 \n\n$ then:\n 2 ** 9 → 512 \n\n $ KEY_IDEA: \n\n> ** has right-to-left\nassociativity.\n\n > THINK BEFORE YOU RUN. 🧠",
+    "media": [],
+    "reactions": [
+      "🤯x1",
+      "👨‍💻x1"
+    ]
+  },
+  {
+    "date": "05.09.2026 12:15:51 UTC+05:00",
+    "type": "community",
+    "text": "> DEV_CONFESSION_01 \n\n $ BE_HONEST: \n\n> How many times have you...\n\"fixed\" your code\n\n...without actually knowing\nwhat fixed it?\n\n > VOTE_BELOW : 👀",
+    "media": [
+      "video"
+    ],
+    "reactions": [
+      "👾x2"
+    ]
+  },
+  {
+    "date": "05.09.2026 12:16:08 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: $ ANSWER_REQUIRED:\n- - [ never ] 2 votes\n- - [ once or twice ] 2 votes, chosen vote\n- - [ let's not talk about it ] 6 votes",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "06.09.2026 15:42:04 UTC+05:00",
+    "type": "workshop",
+    "text": "> WORKSHOP_01 \n\nWe've been throwing quizzes at you.\nNow let's actually solve some problems together.\n\n $ first_online_workshop: \n\n[ 📍 ] discord \n[ 💻 ] pc / laptop required \n[ 🌐 ] English / Russian \n\n> we'll:\n\n> → get a problem\n→ brainstorm\n→ try a solution\n→ break it\n→ debug it\n→ solve it\n\nNo passive watching.\n\n $ schedule: \n\nEvery Sunday.\nBut first, we need your input.\n\n > WAITING_FOR_INPUT_",
+    "media": [
+      "video"
+    ],
+    "reactions": [
+      "⚡x7",
+      "🔥x2"
+    ]
+  },
+  {
+    "date": "06.09.2026 15:42:22 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: $ SELECT_TIME:\n- - [ 🕖 ] 19:00 7 votes\n- - [ 🕗 ] 20:00 12 votes, chosen vote\n- - [ 🕘 ] 21:00 13 votes, chosen vote",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "06.09.2026 19:01:54 UTC+05:00",
+    "type": "workshop",
+    "text": "$ DECISION: \n\n> → 21:00 ✅\n\nSee you there!\n\n > WORKSHOP_CONFIRMED_",
+    "media": [],
+    "reactions": [
+      "⚡x5"
+    ]
+  },
+  {
+    "date": "06.09.2026 20:49:58 UTC+05:00",
+    "type": "post",
+    "text": "$ STARTING_IN: \n\n 10 MINUTES ⚡️\n\n> 📍 discord\n🕘 21:00 (UTC+5)\n\nGet your PC ready.\n\n > JOIN_NOW_ \n [ link ] \n\n $ status: waiting_for_you_",
+    "media": [],
+    "reactions": [
+      "⚡x5"
+    ]
+  },
+  {
+    "date": "06.09.2026 21:04:20 UTC+05:00",
+    "type": "workshop",
+    "text": "> WE_ARE_STARTING!!! \n\nJoin the workshop and get some snacks ready. 🍿",
+    "media": [],
+    "reactions": [
+      "⚡x6"
+    ]
+  },
+  {
+    "date": "07.09.2026 12:29:26 UTC+05:00",
+    "type": "workshop",
+    "text": "> WORKSHOP_01//ATTENDANCE_LOG: \n\n 2 LEGENDS FOUND. 🏆\n\nhuge respect to:\n → @Shadow.C0de \n → @Moroii \n\nYou showed up.\nYou stayed.\nYou solved.\n\n $ special_gift: unlocked _\n\nYou got something the others missed.\nWe're not telling you what it is (yet). 👀\n\n> The first workshop wouldn't have been the same without you.\nThank you for being an active part of our community! 🌟\n\n $ status: grateful_",
+    "media": [],
+    "reactions": [
+      "⚡x7",
+      "👾x2"
+    ]
+  },
+  {
+    "date": "07.09.2026 16:03:52 UTC+05:00",
+    "type": "quiz",
+    "text": "> QUIZ_05 \n\n LANGUAGE: { python }\nDIFFICULTY: { medium } \n\nWhat will this code print?\n numbers = [1, 2, 3, 4, 5]\n\nfor i in range(len(numbers)):\n if numbers[i] % 2 == 0:\n numbers.remove(numbers[i])\n\nprint(numbers) \n\n $ think_before_you_run_ 🧠",
+    "media": [
+      "video"
+    ],
+    "reactions": [
+      "👾x1"
+    ]
+  },
+  {
+    "date": "07.09.2026 16:04:15 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: > OUTPUT_REQUIRED:\n- - [1, 3, 4, 5] 1 vote\n- - [1, 2, 4]\n- - [1, 3, 5] 3 votes\n- - Error 6 votes, chosen vote",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "08.09.2026 13:01:26 UTC+05:00",
+    "type": "quiz",
+    "text": "> QUIZ_05//SOLUTION_FOUND_ \n\n $ CORRECT_OUTPUT: \n\n> IndexError\n\n50% got it right. 👀\n\n > WHY? \n\nAfter removing 2:\n numbers = [1, 3, 4, 5]\n# i = 1 \n\nThen 4 is also removed:\n numbers = [1, 3, 5]\n# i = 2 \n\nBut the loop still reaches i = 3 \n\n numbers[3] no longer exists.\n\n> → IndexError\n\n $ KEY_IDEA: \n\n> Don't modify a list while iterating over its indices.\n\n > think_before_you_run_ 🧠",
+    "media": [],
+    "reactions": [
+      "💯x1"
+    ]
+  },
+  {
+    "date": "09.09.2026 15:53:19 UTC+05:00",
+    "type": "topic",
+    "text": "> DEV_LANGUAGE_??? \n\n $ NEW_LANGUAGE_FOUND \n\nSomeone just invented a programming language\nand we're not sure whether to be impressed or concerned.\n\n $ introducing... \n\n ██████ YOPTASCRIPT ██████ \n\nA programming language where:\n\n> → syntax makes no sense\n→ variable names are questionable\n→ error messages are probably insults\n→ somehow... the code still works\n\n > SAMPLE_CODE: \n гыы gop внатуре п?*@$ишь, lt нах\n\nкуку йопта law() жЫ\n вилкойвглаз(gop типа нечотко) жЫ\n ксива.малява(\"Я и правда язык\") нах\n gop с#$а чотко нах\n есть илив#?$*раз жЫ\n gop с#$а чотко нах\n потрещим(semki чобл$%*#$ка трулио) жЫ\n lt с#$а ксива.вычислитьЛохаПоНомеру(\"list\") нах\n е$#%о.шухер(\"Привет, йопта\") нах\n есть\n есть\n есть \n\n $ COMPILER_STATUS: \n\n> syntax: ██████████\nlogic: ███████░░░\nsanity: ██░░░░░░░░\nRussian: ██████████\n\n > would you actually code in this?",
+    "media": [
+      "photo"
+    ],
+    "reactions": [
+      "🤯x3",
+      "🤣x2"
+    ]
+  },
+  {
+    "date": "09.09.2026 15:53:49 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: Would you learn YOPTASCRIPT?\n- - 🧠 Absolutely 1 vote\n- - 💀 What did I just see 3 votes\n- - 🤨 Unfortunately... yes 1 vote\n- - 🗿 I'm staying with Python 3 votes, chosen vote",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "10.09.2026 14:24:58 UTC+05:00",
+    "type": "quiz",
+    "text": "> QUIZ_05 \n\n LANGUAGE: { python }\nDIFFICULTY: { medium } \n\nWhat will this code print?\n x = [1, 2, 3]\n\ny = x\nz = x.copy()\n\ny.append(4)\nz.append(5)\n\nprint(x, y, z) \n\n $ think_before_you_run_ 🧠",
+    "media": [
+      "video"
+    ],
+    "reactions": [
+      "👾x1"
+    ]
+  },
+  {
+    "date": "10.09.2026 14:25:29 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: > OUTPUT_REQUIRED:\n- - [1, 2, 3, 4, 5] [1, 2, 3, 4] [1, 2, 3, 5] 1 vote\n- - [1, 2, 3] [1, 2, 3, 4] [1, 2, 3, 5] 4 votes\n- - [1, 2, 3, 4] [1, 2, 3, 4] [1, 2, 3, 5] 6 votes, chosen vote\n- - Error 1 vote",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "11.09.2026 10:34:56 UTC+05:00",
+    "type": "quiz",
+    "text": "> QUIZ_06.SOLUTION_FOUND ✅ \n\n $ CORRECT_ANSWER: \n\n> [1, 2, 3, 4] [1, 2, 3, 4] [1, 2, 3, 4, 5]\n\nOnly 40% got it right. 🧠\n\n > MEMORY_REFERENCE \n\n> x ─────┐\n ├─► [1, 2, 3]\ny ─────┘\n\nz ───────► [1, 2, 3]\n\n y = x \n\nBoth x and y point to the same list.\n\n=>\n y.append(4) \n=>\n\n> → x = [1, 2, 3, 4]\n→ y = [1, 2, 3, 4]\n\nBut:\n z = x.copy() \n\ncreates a separate list.\n z.append(5) \n\n> → z = [1, 2, 3, 5]\n\n $ FINAL_OUTPUT: \n\n> x → [1, 2, 3, 4]\ny → [1, 2, 3, 4]\nz → [1, 2, 3, 5]\n\n > same_reference ≠ copy_",
+    "media": [],
+    "reactions": [
+      "⚡x6",
+      "🤯x1"
+    ]
+  },
+  {
+    "date": "12.09.2026 15:07:08 UTC+05:00",
+    "type": "topic",
+    "text": "> INTERNET ARCHIVE ...\n\n $ WHAT_IF_YOU_COULD_WATCH_STAR_WARS_\n$ IN_A_TERMINAL? \n\nNo Netflix.\nNo GPU.\nJust a web terminal.\n\n > TRY_THIS:\n\n => [ open browser & type telehack.com ] \n => [ type starwars in the command line ] \n\n > WHAT IS THIS? \n\n> It's an ASCII recreation of Star Wars: Episode IV — A New Hope played directly through a Telnet connection.\nCharacters become pixels. The terminal becomes a screen. And somehow... it works.\n\n > FUN_FACT: \n\n> The original ASCII animation was started by Simon Jansen in 1997.\nThat's almost 30 years of Star Wars... in a terminal.\n\n $ your_mission: \n\nRun it. Then tell us:",
+    "media": [
+      "photo"
+    ],
+    "reactions": [
+      "👾x2"
+    ]
+  },
+  {
+    "date": "12.09.2026 15:07:37 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: You have to watch Star Wars like this. What are you doing?\n- - 🍿 Watching the whole thing 1 vote\n- - 💀 I'm leaving after 30 seconds 3 votes\n- - 🧠 This is actually cool 8 votes, chosen vote\n- - 🗿 I already knew about this 1 vote",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "13.09.2026 12:32:20 UTC+05:00",
+    "type": "workshop",
+    "text": "> WORKSHOP_02 \n\nToday we're going back to what THINK//CODE does best:\n\n> LOGIC\nPROBLEM-SOLVING\nTHINKING\n\n$ TODAY'S_CHALLENGE:\n\n> => 3 problems\n=> 3 different ways to think\n\nNo rushing.\nNo guessing.\nThink first. Code later.\n\n > NEW_SYSTEM_UNLOCKED: \n\n> We're also announcing something we've been building. Our platform is ready. And we're giving it away.\n\nFREE. FOR EVERYONE.\n\nWe'll show you how it works\nduring today's workshop.\n\n [📍] discord: join the server through the link in the channel description.\n\n > workshop_02: ONLINE_",
+    "media": [
+      "video"
+    ],
+    "reactions": [
+      "⚡x1",
+      "🔥x1"
+    ]
+  },
+  {
+    "date": "13.09.2026 12:32:39 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: $ SELECT_TIME:\n- - [ ⌚️ ] 17:00 4 votes\n- - [ ⌚️ ] 18:00 4 votes\n- - [ ⌚️ ] 19:00 10 votes, chosen vote",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "13.09.2026 17:01:20 UTC+05:00",
+    "type": "workshop",
+    "text": "> WORKSHOP_02//FINAL_DECISION_ \n\n> → 19:00 ✅\n\nSee you there!\n\n > WORKSHOP_CONFIRMED_",
+    "media": [],
+    "reactions": [
+      "⚡x1"
+    ]
+  },
+  {
+    "date": "13.09.2026 18:20:01 UTC+05:00",
+    "type": "post",
+    "text": "> 40_MINUTES_LEFT_ \n\n $ LOCATION:\n\n> [ discord ]",
+    "media": [],
+    "reactions": [
+      "⚡x1"
+    ]
+  },
+  {
+    "date": "13.09.2026 19:00:10 UTC+05:00",
+    "type": "post",
+    "text": "> WE ARE ABOUT TO START GUYS! JOIN IN!",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "14.09.2026 10:53:43 UTC+05:00",
+    "type": "post",
+    "text": "> SYSTEM_UPDATE \n\n $ PLATFORM: ONLINE ✅\n\nWe've been building something behind the scenes.\nNow it's ready.\n\n> THINK//CODE [ LEARN ]\n\nA place to practice, solve problems, and sharpen your thinking.\nAnd yes — it's completely free. \n\n $ ACCESS: \n\n> → https://think-code-learn.vercel.app/\n\nNo waiting list.\nNo invite.\nJust open it and start solving.\n\n $ system_unlocked_",
+    "media": [
+      "photo"
+    ],
+    "reactions": [
+      "🔥x5",
+      "🤣x1"
+    ]
+  },
+  {
+    "date": "14.09.2026 16:00:33 UTC+05:00",
+    "type": "workshop",
+    "text": "> SYSTEM_CHECK_ \n\n $ WORKSHOP_02: COMPLETED ✅\n\n> 3 problems.\n2 participants.\n\nMeanwhile...\n\n $ POST_VIEWS: 50+\n\n> We spend time preparing these workshops because we actually want to build something active.\nNot a channel where everyone just scrolls past.\n\n $ QUESTION: \n\n> If you're reading our posts, but not joining the workshops... WHY?\n\n> your feedback = our next move_",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "14.09.2026 16:01:09 UTC+05:00",
+    "type": "poll",
+    "text": "POLL: > WHY_NOT_JOIN?\n- - Wrong time\n- - Not interested\n- - Forgot about it 1 vote\n- - Too difficult / intimidating 1 vote\n- - Discord is inconvenient\n- - Other → tell us 3 votes",
+    "media": [],
+    "reactions": []
+  },
+  {
+    "date": "14.09.2026 16:13:20 UTC+05:00",
+    "type": "post",
+    "text": "$ THOSE WHO CHOSE [ Other ] PLEASE CLARIFY IN THE [ COMMETS ] \n\nDon't be afraid, we are not judging you.\nWe need your honest opinion of us.",
+    "media": [],
+    "reactions": []
+  }
+]

@@ -1,0 +1,28 @@
+services:
+  - type: worker
+    name: think-code-mediabot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHANNEL_ID
+        sync: false
+      - key: TELEGRAM_ADMIN_IDS
+        sync: false
+      - key: TELEGRAM_REVIEW_GROUP_ID
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash-lite
+      - key: GEMINI_VALIDATOR_MODEL
+        value: gemini-3.5-flash-lite
+      - key: FIREBASE_PROJECT_ID
+        value: think-code-mediabot
+      - key: FIREBASE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: DEFAULT_PUBLISH_TIME
+        value: "12:00"
+      - key: TIMEZONE
+        value: Asia/Tashkent

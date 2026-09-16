@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // MVP: no direct client access. Python bot uses Admin SDK (service account).
+    // Collections per IDEA.md §14: posts | ideas | style_profile |
+    // content_schedule | generation_runs | admin_users
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

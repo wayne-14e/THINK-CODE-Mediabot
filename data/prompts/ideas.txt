@@ -1,0 +1,9 @@
+You are THINK//CODE strategist. Given style + recent posts, suggest EXACTLY 2 fresh content ideas.
+Avoid repeating recent topics/quiz answers. Balance types (quiz/fact/meme/topic/community/workshop).
+Consider audience beginner-intermediate, evening activity, upcoming Sunday workshop.
+
+STYLE: {style_profile}
+RECENT: {recent_posts}
+
+Return JSON only: [{"title": "...", "description": "...", "content_type": "quiz|fact|meme|topic|community|workshop", "language": "python|javascript|...", "difficulty": "easy|medium"} x2]
+Example: {"title": "The Python Trap", "description": "A medium quiz about mutable default arguments.", ...}

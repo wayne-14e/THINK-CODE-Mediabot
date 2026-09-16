@@ -1,0 +1,10 @@
+.env
+service-account.json
+__pycache__/
+.venv/
+.git/
+ChatExport_2026-09-16/
+IDEA.md
+PROJECT_CONTEXT.md
+AGENT.md
+.firebase/
