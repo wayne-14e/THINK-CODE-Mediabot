@@ -1,7 +1,9 @@
 """Fly.io webhook server."""
+import asyncio
 import logging
 import os
 import threading
+from concurrent.futures import Future
 
 from flask import Flask, jsonify, request
 
@@ -14,6 +16,7 @@ app = Flask(__name__)
 bot = None
 dp = None
 _loop = None
+_ready = threading.Event()
 
 
 @app.route("/", methods=["GET"])
@@ -23,12 +26,16 @@ def health():
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
-    if bot and dp and _loop:
-        import asyncio
-        update = request.get_json(force=True)
-        from aiogram.types import Update
-        tg_update = Update.model_validate(update)
-        asyncio.run_coroutine_threadsafe(dp.feed_update(bot, tg_update), _loop)
+    if not _ready.is_set():
+        return "", 503
+    update = request.get_json(force=True)
+    from aiogram.types import Update
+    tg_update = Update.model_validate(update)
+    future = asyncio.run_coroutine_threadsafe(dp.feed_update(bot, tg_update), _loop)
+    try:
+        future.result(timeout=25)
+    except Exception:
+        logger.exception("Handler failed")
     return "", 200
 
 
@@ -36,7 +43,6 @@ def _init_bot():
     global bot, dp, _loop
     try:
         logger.info("Bot thread starting")
-        import asyncio
         import sys
         sys.path.insert(0, os.path.dirname(__file__))
         from bot.config import settings
@@ -60,6 +66,7 @@ def _init_bot():
         import aiohttp, time
         time.sleep(3)
         url = f"https://{settings.fly_app_name}.fly.dev/webhook"
+
         async def reg():
             async with aiohttp.ClientSession() as s:
                 r = await s.get(
@@ -68,8 +75,10 @@ def _init_bot():
                 )
                 d = await r.json()
                 logger.info("Webhook: %s", d)
+
         _loop.run_until_complete(reg())
         logger.info("Bot ready, webhook registered")
+        _ready.set()
         _loop.run_forever()
     except Exception:
         logger.exception("Bot init failed")
